@@ -26,10 +26,10 @@ public class MenuController {
         List<MenuItems> menuItems = service.getAllMenu();
         return menuItems;
     }
-    @GetMapping("/add-menuitem")
-    public List<MenuItems> addMenuItem(Long restId, Menu menu){
-        List<MenuItems> menuItems = service.addMenuItem();
-        return menuItems;
-    }
+//    @GetMapping("/add-menuitem")
+//    public List<MenuItems> addMenuItem(Long restId, Menu menu){
+//        List<MenuItems> menuItems = service.addMenuItem();
+//        return menuItems;
+//    }
 
 }
