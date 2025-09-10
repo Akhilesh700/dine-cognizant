@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/delivery")
+@RequestMapping("${api.version.path}/deliveries")
 public class DeliveryController {
 
     @Autowired
     DeliveryService deliveryService;
 
     //For the manager's dashboard to display orders ready for delivery.
-    @GetMapping("/api/v1/deliveries/unassigned")
+    @GetMapping("/unassigned")
     public ResponseEntity<List<UnassignedOrderDTO>> getUnassignedOrders(@RequestHeader("restId") Integer restId) {
         return deliveryService.getUnassignedOrders(restId);
     }
