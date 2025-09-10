@@ -39,9 +39,6 @@ public class Delivery {
     @JoinColumn(name = "AgentID")
     private DeliveryAgent deliveryAgent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "StatusID")
-    private Status status;
 
     // Getters and Setters are now handled by Lombok
 }

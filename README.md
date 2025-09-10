@@ -66,7 +66,7 @@ The database schema is designed to be efficient and normalized. The core entitie
 - **Real-Time Order Tracking:** Monitor your order from the kitchen to your doorstep.
 
 ### For Restaurants:
-- **Menu Management Dashboard:** Easily add, update, and manage your menu items.
+- **Menu Management Dashboard:** Easily add, update, and manage your menuItems items.
 - **Order Management Panel:** View incoming orders in real-time, accept or reject them.
 - **Status Updates:** Keep customers informed by updating the order status.
 
