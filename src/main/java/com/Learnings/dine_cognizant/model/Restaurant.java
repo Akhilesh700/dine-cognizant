@@ -22,6 +22,9 @@ public class Restaurant {
     @Column(name = "Name", length = 100)
     private String name;
 
+    @Column(name="imgUrl", length = 500)
+    private String imgUrl;
+
     @Column(name = "Address", columnDefinition = "TEXT")
     private String address;
 
