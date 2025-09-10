@@ -20,6 +20,9 @@ public class Menu {
     @Column(name = "Name", length = 100)
     private String name;
 
+    @Column(name="imgUrl", length = 500)
+    private String imgUrl;
+
     @Column(name = "Description", columnDefinition = "TEXT")
     private String description;
 
@@ -35,5 +38,4 @@ public class Menu {
     @JoinColumn(name = "RestID", nullable = false)
     private Restaurant restaurant;
 
-    // Getters and Setters are now handled by Lombok
 }
