@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface DeliveryAgentDao extends JpaRepository<DeliveryAgent, Integer> {
 
-    
-    public List<DeliveryAgent> findAllAvailableDeliveryAgent();
+
+//    public List<DeliveryAgent> findAllAvailableDeliveryAgent();
 }

@@ -50,7 +50,7 @@ public class Restaurant {
     private User user;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Menu> menuItems;
+    private Set<MenuItems> menuItems;
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Order> orders;

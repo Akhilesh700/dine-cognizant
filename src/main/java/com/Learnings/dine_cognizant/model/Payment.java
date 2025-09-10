@@ -30,15 +30,17 @@ public class Payment {
     @Column(name = "Timestamp")
     private LocalDateTime timestamp;
 
+    @Column(name = "payment_type")
+    private String paymentType;
+
+    @Column(name = "payment_status")
+    private String paymentStatus;
+
     // --- Relationships ---
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OrderID", nullable = false)
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "StatusID")
-    private Status status;
 
-    // Getters and Setters are now handled by Lombok
 }

@@ -28,9 +28,9 @@ public class DeliveryService {
         return new ResponseEntity<>(unassignedOrderDTOS, HttpStatus.OK);
     }
 
-    public ResponseEntity<List<DeliveryAgent>> getAllAvailableDeliveryAgent() {
-
-    }
+//    public ResponseEntity<List<DeliveryAgent>> getAllAvailableDeliveryAgent() {
+//
+//    }
 
 
 

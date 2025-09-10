@@ -1,17 +1,19 @@
 package com.Learnings.dine_cognizant.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "Menu")
-public class Menu {
-
+@Table(name = "Menu_items")
+@ToString
+public class MenuItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ItemID")
@@ -36,6 +38,7 @@ public class Menu {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RestID", nullable = false)
+    @JsonBackReference()
     private Restaurant restaurant;
 
 }

@@ -26,6 +26,14 @@ public class DeliveryAgent {
     @Column(name = "Email", length = 100)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private  Status status;
+
+    public enum Status {
+        Available, InDelivery, Offline
+    }
+
     @Column(name = "IdentityProofType", length = 50)
     private String identityProofType;
 
