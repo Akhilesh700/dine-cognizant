@@ -1,5 +1,6 @@
 package com.Learnings.dine_cognizant.controller;
 
+import com.Learnings.dine_cognizant.model.DeliveryAgent;
 import com.Learnings.dine_cognizant.model.UnassignedOrderDTO;
 import com.Learnings.dine_cognizant.service.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,10 @@ public class DeliveryController {
         return deliveryService.getUnassignedOrders(restId);
     }
 
+
+    @GetMapping("/getAvailableAgents")
+    public ResponseEntity<List<DeliveryAgent>> getAvailableDeliveryAgent() {
+        return deliveryService.getAllAvailableDeliveryAgent();
+    }
 
 }
