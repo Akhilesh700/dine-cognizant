@@ -26,6 +26,11 @@ public class DeliveryAgent {
     @Column(name = "Email", length = 100)
     private String email;
 
+
+    private enum status {
+        Available, InDelivery, Offline
+    }
+
     @Column(name = "IdentityProofType", length = 50)
     private String identityProofType;
 
