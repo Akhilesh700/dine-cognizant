@@ -19,28 +19,25 @@ public class Restaurant {
     @Column(name = "RestID")
     private Integer restId;
 
-    @Column(name = "Name", length = 100)
+    @Column(name = "Name", length = 100, nullable = false)
     private String name;
 
-    @Column(name="imgUrl", length = 500)
+    @Column(name="imgUrl", length = 500, nullable = false)
     private String imgUrl;
 
-    @Column(name = "Address", columnDefinition = "TEXT")
+    @Column(name = "Address", columnDefinition = "TEXT", nullable = false)
     private String address;
 
-    @Column(name = "Phone", length = 15)
+    @Column(name = "Phone", length = 15, nullable = false)
     private String phone;
 
-    @Column(name = "Rating", precision = 2, scale = 1)
+    @Column(name = "Rating", precision = 2, scale = 1, nullable = false)
     private BigDecimal rating;
 
-    @Column(name = "CuisineType", length = 50)
-    private String cuisineType;
-
-    @Column(name = "OpenTime")
+    @Column(name = "OpenTime", nullable = false)
     private LocalTime openTime;
 
-    @Column(name = "CloseTime")
+    @Column(name = "CloseTime", nullable = false)
     private LocalTime closeTime;
 
     // --- Relationships ---
