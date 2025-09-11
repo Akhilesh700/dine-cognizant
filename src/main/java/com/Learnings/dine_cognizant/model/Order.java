@@ -1,5 +1,6 @@
 package com.Learnings.dine_cognizant.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,25 +34,31 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CustID", nullable = false)
+    @JsonBackReference
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RestID", nullable = false)
+    @JsonBackReference
     private Restaurant restaurant;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "StatusID")
+    @JsonBackReference
     private Status status;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
+    @JsonBackReference
     private Cart cart;
 
 
     @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Delivery delivery;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<Payment> payments;
 
     // Getters and Setters are now handled by Lombok

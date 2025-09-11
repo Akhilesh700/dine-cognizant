@@ -34,5 +34,21 @@ public class DeliveryService {
     }
 
 
+    public ResponseEntity<Order> findOrderById(Integer id) {
+        Order order = null;
+        try{
+            Optional<Order> optionalOrder =  deliveryDao.findOrderByOrderId(id);
+            if(optionalOrder.isPresent()) {
+                order = optionalOrder.get();
+            }else {
+                throw new Exception("Error while fetching Order");
+            }
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(order,HttpStatus.OK);
+    }
+
+
 
 }

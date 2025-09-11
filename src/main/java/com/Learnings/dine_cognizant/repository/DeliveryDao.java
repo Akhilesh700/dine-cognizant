@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DeliveryDao extends JpaRepository<Order, Integer> {
@@ -22,4 +23,5 @@ public interface DeliveryDao extends JpaRepository<Order, Integer> {
             "WHERE (s.status_name = \"Preparing\" or s.status_name = \"Not_Accepted\") and r.restId = :id; ", nativeQuery = true)
     public List<UnassignedOrderDTO> findUnassignedOrders(Integer id);
 
+    Optional<Order> findOrderByOrderId(Integer id);
 }
