@@ -13,4 +13,7 @@ public interface DeliveryAgentDao extends JpaRepository<DeliveryAgent, Integer> 
             "FROM delivery_agent \n" +
             "WHERE status = \"Available\";", nativeQuery = true)
     public List<DeliveryAgent> findAllAvailableDeliveryAgent();
+
+
+
 }

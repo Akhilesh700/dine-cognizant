@@ -1,13 +1,10 @@
-package com.Learnings.dine_cognizant.model;
+package com.Learnings.dine_cognizant.model.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
-
 
 
 @Data

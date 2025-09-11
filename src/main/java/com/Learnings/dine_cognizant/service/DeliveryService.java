@@ -1,9 +1,11 @@
 package com.Learnings.dine_cognizant.service;
 
 
+import com.Learnings.dine_cognizant.exception.InvalidRequestException;
 import com.Learnings.dine_cognizant.model.DeliveryAgent;
+import com.Learnings.dine_cognizant.model.Helpers.OrderId_DeliveryId;
 import com.Learnings.dine_cognizant.model.Order;
-import com.Learnings.dine_cognizant.model.UnassignedOrderDTO;
+import com.Learnings.dine_cognizant.model.DTO.UnassignedOrderDTO;
 import com.Learnings.dine_cognizant.repository.DeliveryAgentDao;
 import com.Learnings.dine_cognizant.repository.DeliveryDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,28 @@ public class DeliveryService {
             System.out.println(e.getMessage());
         }
         return new ResponseEntity<>(order,HttpStatus.OK);
+    }
+
+    public ResponseEntity<Boolean> assignOrder(Integer id) {
+        boolean flag = false;
+        try{
+            Optional<OrderId_DeliveryId> optionalOrderIdDeliveryId = deliveryDao.findOrderIdDeliveryID(id);
+            if(optionalOrderIdDeliveryId.isPresent()) {
+                OrderId_DeliveryId orderIdDeliveryId = optionalOrderIdDeliveryId.get();
+                if(orderIdDeliveryId.getDeliveryId() != null) {
+                    throw new InvalidRequestException("Order with orderId: " + id + " Already has a delivery assigned");
+                }else {
+                    List<DeliveryAgent> deliveryAgents = deliveryAgentDao.findAllAvailableDeliveryAgent();
+                    //TODO: Add the delivery assignment logic.
+                    flag = true;
+                }
+            }else{
+                throw new Exception("No row found");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return new ResponseEntity<>(flag, HttpStatus.ACCEPTED);
     }
 
 
