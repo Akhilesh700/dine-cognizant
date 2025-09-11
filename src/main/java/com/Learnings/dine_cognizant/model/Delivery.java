@@ -1,5 +1,6 @@
 package com.Learnings.dine_cognizant.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,10 +34,12 @@ public class Delivery {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OrderID", nullable = false)
+    @JsonBackReference
     private Order order;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "AgentID")
+    @JsonBackReference
     private DeliveryAgent deliveryAgent;
 
 

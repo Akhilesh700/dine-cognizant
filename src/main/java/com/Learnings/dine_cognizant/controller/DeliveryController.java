@@ -1,14 +1,12 @@
 package com.Learnings.dine_cognizant.controller;
 
 import com.Learnings.dine_cognizant.model.DeliveryAgent;
+import com.Learnings.dine_cognizant.model.Order;
 import com.Learnings.dine_cognizant.model.UnassignedOrderDTO;
 import com.Learnings.dine_cognizant.service.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,11 @@ public class DeliveryController {
     public ResponseEntity<List<DeliveryAgent>> getAvailableDeliveryAgent() {
         return deliveryService.getAllAvailableDeliveryAgent();
     }
+
+    @GetMapping("/order/{id}")
+    public ResponseEntity<Order> findOrderById(@PathVariable("id") Integer id) {
+        return deliveryService.findOrderById(id);
+    }
+
 
 }
