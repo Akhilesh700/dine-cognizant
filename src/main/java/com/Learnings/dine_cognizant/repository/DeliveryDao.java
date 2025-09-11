@@ -1,7 +1,8 @@
 package com.Learnings.dine_cognizant.repository;
 
+import com.Learnings.dine_cognizant.model.Helpers.OrderId_DeliveryId;
 import com.Learnings.dine_cognizant.model.Order;
-import com.Learnings.dine_cognizant.model.UnassignedOrderDTO;
+import com.Learnings.dine_cognizant.model.DTO.UnassignedOrderDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -23,5 +24,13 @@ public interface DeliveryDao extends JpaRepository<Order, Integer> {
             "WHERE (s.status_name = \"Preparing\" or s.status_name = \"Not_Accepted\") and r.restId = :id; ", nativeQuery = true)
     public List<UnassignedOrderDTO> findUnassignedOrders(Integer id);
 
+
     Optional<Order> findOrderByOrderId(Integer id);
+
+    @Query(value = "select o.orderid, d.deliveryid from `order` o\n" +
+            "left join delivery d\n" +
+            "on o.orderid = d.orderid\n" +
+            "where o.orderid = :id;", nativeQuery = true)
+    Optional<OrderId_DeliveryId> findOrderIdDeliveryID(Integer id);
+
 }
